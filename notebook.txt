@@ -1,0 +1,11 @@
+Marcus Ribeiro
+
+Exploit 1 -- 1-hiss.txt
+
+For this exploit, one had to test to see how large BUFFER_SIZE is. To do this, one can keep entering characters
+into the function, adding one each time until it seg faults. In this writing 24 characters, which would be 25
+with the null character that gets added on, causes a seg fault. Therefore, after rsp + 24, there is a return 
+address that you must rewrite. By disassembling hiss, one can find its address and use this in overwriting the
+stack's initial return address to execute the hiss function.
+
+
