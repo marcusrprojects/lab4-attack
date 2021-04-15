@@ -9,3 +9,9 @@ address that you must rewrite. By disassembling hiss, one can find its address a
 stack's initial return address to execute the hiss function.
 
 
+Exploit 2
+
+For this exploit, the exploit code specifies that one initilally has to move the chosen id number into rdi, 
+argument 1's register, and then return this. Afterwards, one has to pad the rest of the buffer for its entire
+size, which is 24 in this case. Afterwards, make the return address turn into the exploit code address to
+execute this code. Finally, add the glow address to the stack as well to go there from the exploit code.
