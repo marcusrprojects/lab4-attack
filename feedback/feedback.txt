@@ -1,0 +1,12 @@
+Lab 4 - Stack Attack
+Marcus
+
+Successful Exploits: 4/5
+
+Comments:
+
+-Return addresses always need to be 8 bytes (you're only writing the first five in exploit 1, which happens to work because the three next bytes in memory happen to be zeroes, but if they weren't, the exploit wouldn't work).
+
+-For debugging exploit 5, you can use GDB to see what address is triggering the segfault (which is presumably due to an incorrect gadget address somewhere).  At the point of the segfault, you can check what %rip is (which is probably going to be an invalid address resulting in a segfault when the machine tries to fetch the instruction there).
+
+Score: 95/100

@@ -1,0 +1,38 @@
+\Marcus Ribeiro
+
+Exploit 1 -- 1-hiss.txt
+
+For this exploit, one had to test to see how large BUFFER_SIZE is. To do this, one can keep entering characters
+into the function, adding one each time until it seg faults. In this writing 24 characters, which would be 25
+with the null character that gets added on, causes a seg fault. Therefore, after rsp + 24, there is a return 
+address that you must rewrite. By disassembling hiss, one can find its address and use this in overwriting the
+stack's initial return address to execute the hiss function.
+
+
+Exploit 2
+
+For this exploit, the exploit code specifies that one initilally has to move the chosen id number into rdi, 
+argument 1's register, and then return this. Afterwards, one has to pad the rest of the buffer for its entire
+size, which is 24 in this case. Afterwards, make the return address turn into the exploit code address to
+execute this code. Finally, add the glow address to the stack as well to go there from the exploit code.
+
+Exploit 3
+
+For this exploit, the exploit code specifies that an argument string will be moved in and then it will
+return. It will also be padded for the remaining of the 24 hex digits. Afterwards, we have the return address
+become the exploit address to execute this code. After this is the implode address and then finally the
+string value.
+
+Exploit 4
+
+For this exploit, the exploit code is simply a buffer with 14 hex digits. Next, we have a gadget that will
+pop rax and then we insert the ID number into rax. Finally, we move this value to the rdi register so that 
+our glow function, which is called next, can use it as the first argument.
+
+Exploit 5
+
+For this exploit, it was almost solved but I have had trouble locating the problem that makes it seg fault.
+It initially pads with 24 hex digits. Then, it will try to do get a pointer to rsp + 0x68 to account for 
+the address of the string representation of the ID number. Using a gadget that uses lea to create a pointer
+to this value by harnessing rdi and rsi, our other gadgets simply ensure that the value for rsp is in
+rdi and that the value for the displacement required, 0x68, is in rsi.
